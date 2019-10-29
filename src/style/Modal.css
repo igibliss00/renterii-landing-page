@@ -1,0 +1,18 @@
+.desc {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 20px; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(201, 160, 153, 0.7); }
+
+#close-icon {
+  color: white;
+  float: right; }
+  #close-icon:hover {
+    cursor: pointer; }
