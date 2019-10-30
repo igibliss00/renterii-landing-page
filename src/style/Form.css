@@ -1,6 +1,21 @@
 .form {
   color: white;
-  font-size: 20px; }
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden; }
+  .form .title {
+    margin-bottom: 20px; }
   .form .desc {
     font-size: 12px;
     font-weight: lighter;
@@ -13,19 +28,32 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    -ms-flex-pack: distribute;
-    justify-content: space-around; }
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%; }
     .form .input-container .label {
       width: 100%; }
     .form .input-container .input {
       width: 95%;
-      height: 40px; }
+      height: 40px;
+      border-radius: 5px;
+      border: 0; }
     .form .input-container .input2 {
-      width: 98%;
-      height: 40px; }
+      width: 97.5%;
+      height: 40px;
+      border-radius: 5px;
+      border: 0; }
   .form .button {
-    height: 40px;
+    height: 45px;
     background-color: rgba(201, 160, 153, 0);
     padding: 10px;
     color: white;
-    border: 2px solid white; }
+    border: 2px solid white;
+    font-size: 15px;
+    font-weight: bold;
+    width: 98%; }
+
+@media (min-width: 50px) and (max-width: 550px) {
+  .form .input-container .input {
+    width: 90%; } }

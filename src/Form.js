@@ -7,12 +7,13 @@ const Form = () => {
     const handleSubmit = () => {
 
     }
-
+    
     return (
         <form 
             className="form"
             onSubmit={handleSubmit}
         >
+            <div className="title">Bringing the world new accessible items, and experiences - rent anything, anywhere!</div>
             <div className="label">Name *</div>
             <div className="desc">What is your name?</div> 
             <div className="input-container">
@@ -47,11 +48,7 @@ const Form = () => {
                     />
                 </label>
             </div>
-            <input 
-                className="button"
-                type="submit" 
-                value="Submit" 
-            />
+            <button className="button">Submit</button>
         </form>
     )
 }

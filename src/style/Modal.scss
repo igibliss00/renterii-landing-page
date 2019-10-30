@@ -1,3 +1,17 @@
+.email-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    background-color: rgba(201, 160,153, 0); 
+    width: 50%;  
+    border: none;
+    &:focus {
+        outline: 0;
+    } 
+}
+
+
 .desc {
     color: white;
     margin-bottom: 30px;
@@ -17,7 +31,16 @@
 #close-icon {
     color: white;
     float: right;
+    transform: translateY(9px);
     &:hover {
         cursor: pointer;
     }
 }
+
+@media (min-width: 50px) and (max-width: 550px) {
+    .email-modal {
+        width: 90%;
+    }
+}   
+
+// .ReactModal__Content, .ReactModal__Content--after-open
