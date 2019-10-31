@@ -5,9 +5,14 @@ import {useSpring, animated} from 'react-spring'
 import Form from './Form'
 import './style/Modal.css'
 
-const FormModal = ({ isOpen, setModal }) => {    
+const FormModal = ({ isOpen, setModal, setFinishModal }) => {  
+    const cancelModal = () => {
+        setModal(false)
+    }  
+
     const closeModal = () => {
         setModal(false)
+        setFinishModal(true)
     }
 
     const props = useSpring({
@@ -29,14 +34,14 @@ const FormModal = ({ isOpen, setModal }) => {
             <Modal
                 isOpen={isOpen}
                 contentLabel="FormModal"
-                className="email-modal"               
+                className="email-modal"                 
                 ariaHideApp={false}
                 overlayClassName="overlay"                
             >
-                <div onClick={closeModal}>
-                    <i className="fas fa-times" id="close-icon"></i>            
+                <div onClick={cancelModal} className="close-icon">
+                    <i className="fas fa-times" ></i>            
                 </div>
-                <Form />
+                <Form closeModal={closeModal} />
             </Modal>
         </animated.div>
     )

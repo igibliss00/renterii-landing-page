@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
 
+import axios from 'axios'
 import './style/Form.css'
 
-const Form = () => {
-    const [value, setValue] = useState('')
-    const handleSubmit = () => {
+const ROOT_URL = 'https://us-central1-renterii-landing-page.cloudfunctions.net'
 
+const Form = ({ closeModal }) => {
+    const [email, setEmail] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const handleSubmit = async e => {
+        e.preventDefault()                
+        try {
+            await axios.post(`${ROOT_URL}/createEmailList`, {
+                email,
+                firstName,
+                lastName
+            })
+        } catch (err) {
+            console.log(err)
+        }
+        closeModal()
     }
     
     return (
@@ -13,7 +28,7 @@ const Form = () => {
             className="form"
             onSubmit={handleSubmit}
         >
-            <div className="title">Bringing the world new accessible items, and experiences - rent anything, anywhere!</div>
+            <div className="title">Bringing the world new accessible items + experiences - Notify me when renterii launches!</div>
             <div className="label">Name *</div>
             <div className="desc">What is your name?</div> 
             <div className="input-container">
@@ -21,8 +36,8 @@ const Form = () => {
                     <input 
                         className="input" 
                         type="text" 
-                        value={value} 
-                        onChange={setValue} 
+                        value={firstName} 
+                        onChange={e => setFirstName(e.target.value)} 
                     />
                     <div className="desc">First Name</div>
                 </label>
@@ -30,8 +45,8 @@ const Form = () => {
                     <input 
                         className="input"
                         type="text" 
-                        value={value} 
-                        onChange={setValue} 
+                        value={lastName} 
+                        onChange={e => setLastName(e.target.value)} 
                     />
                     <div className="desc">Last Name</div>
                 </label>
@@ -42,9 +57,9 @@ const Form = () => {
                 <label className="label">
                     <input 
                         className="input2" 
-                        type="text" 
-                        value={value} 
-                        onChange={setValue} 
+                        type="email" 
+                        value={email} 
+                        onChange={e => setEmail(e.target.value)} 
                     />
                 </label>
             </div>

@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 import Modal from './Modal'
+import FinishModal from './FinishModal'
 import './style/App.css'
 
 function App() {
   const [modal, setModal] = useState(false)
+  const [finishModal, setFinishModal] = useState(false)
   
   const onClickHandler = () => {
     setModal(true)
@@ -67,23 +69,24 @@ function App() {
             Your browser does not support the video tag. I suggest you upgrade your browser.
         </video>            
       </div>
-      <Modal isOpen={modal} setModal={setModal} />
+      <Modal isOpen={modal} setModal={setModal} setFinishModal={setFinishModal} />
+      <FinishModal isOpen={finishModal} setFinishModal={setFinishModal}/>
       <div className="menu">
         <animated.img 
-          className={`logo ${modal && "invisible"}`}
+          className={`logo ${(modal || finishModal) && "invisible"}`}
           src={require("./media/Renterii_logo_w.png")} 
           alt="renterii logo"
           style={props}
         />
         <animated.div 
-          className={`notify ${modal && "invisible"}`}
+          className={`notify ${(modal || finishModal) && "invisible"}`}
           onClick={onClickHandler}
           style={props2}
         >
-          NOTIFY ME WHEN RENTERII LAUNCHES
+          RENT ITEMS
         </animated.div>
         <animated.div 
-          className={`social-media ${modal && "invisible"}`}
+          className={`social-media ${(modal || finishModal) && "invisible"}`}
           style={props3}
         >
           <a href="https://www.facebook.com/renterii/">

@@ -38,12 +38,14 @@
       width: 95%;
       height: 40px;
       border-radius: 5px;
-      border: 0; }
+      border: 0;
+      padding-left: 3px; }
     .form .input-container .input2 {
       width: 97.5%;
       height: 40px;
       border-radius: 5px;
-      border: 0; }
+      border: 0;
+      padding-left: 3px; }
   .form .button {
     height: 45px;
     background-color: rgba(201, 160, 153, 0);
@@ -53,7 +55,14 @@
     font-size: 15px;
     font-weight: bold;
     width: 98%; }
+    .form .button:hover {
+      color: black;
+      background-color: white; }
 
 @media (min-width: 50px) and (max-width: 550px) {
   .form .input-container .input {
     width: 90%; } }
+
+input[type="text"],
+input[type="email"] {
+  font-size: 16px; }

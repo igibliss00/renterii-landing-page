@@ -27,13 +27,15 @@
             width: 95%;
             height: 40px;
             border-radius: 5px;
-            border: 0;         
+            border: 0; 
+            padding-left: 3px;      
         }
         .input2 {
             width: 97.5%;
             height: 40px;
             border-radius: 5px;
-            border: 0;         
+            border: 0; 
+            padding-left: 3px;                  
         }
     } 
     .button {
@@ -45,6 +47,10 @@
         font-size: 15px;  
         font-weight: bold;
         width: 98%;        
+        &:hover {
+            color: black;
+            background-color: white;
+        }
     }
 }
 
@@ -60,3 +66,8 @@
         }
     }
 }   
+
+input[type="text"],
+input[type="email"] {
+    font-size: 16px;
+}
